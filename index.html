@@ -21,7 +21,7 @@
         <h2>Just Do It!</h2>
       </div>
       <nav>
-        <ul >
+        <ul>
           <li>Home</li>
           <li>Sobre</li>
           <li>Contatos</li>
@@ -30,11 +30,10 @@
     </header>
     <div id="bg-img"></div>
     <main>
-      
       <div id="container">
         <div id="welcome" class="content">
           <h1>Bem vindo ao DO IT!</h1>
-          <h3>Organize Suas Ideias, Planeje seu futuro, Crie novas Metas!</h3>
+          <p>Organize Suas Ideias, Planeje seu futuro, Crie novas Metas!</p>
           <div id="welcomeImg">
             <img
               src="assets/img/post-its.jpg"
@@ -44,27 +43,28 @@
               width="100%"
             />
           </div>
-          
-          <p>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veritatis,
-            iure!
-          </p>
+
+          <p>Cadastre-se !</p>
         </div>
 
         <!-- Formulário de login -->
-        <div id="login" class="form content">
-          <form action="">
+        <div id="login" class="content">
+          <div id="form">
             <h2>Entre na sua conta:</h2>
-            <input type="email" id="email" placeholder="Digite Seu Email..." />
-            <br />
-            <input
-              type="password"
-              id="password"
-              placeholder="Digite sua Senha..."
-            />
-            <br />
-            <button type="" class="btn">Login</button>
-          </form>
+            <form action="">
+              <div class="inputGroup">
+                <input type="text" required="" autocomplete="off" />
+                <label for="name">username</label>
+              </div>
+              
+              <div class="inputGroup">
+                <input type="password" required="" autocomplete="off" />
+                <label for="password">password</label>
+              </div>
+             
+              <button type="" class="btn">Login</button>
+            </form>
+          </div>
         </div>
 
         <!-- Formulário de Cadastro -->

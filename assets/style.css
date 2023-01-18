@@ -11,7 +11,7 @@
 */
 
 @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa&display=swap");
 
 * {
   margin: 0;
@@ -29,6 +29,7 @@ body {
   position: fixed;
   width: 100vw;
   height: 12vh;
+  padding-right: 20px;
   background-image: linear-gradient(
     to right,
     #ef476f,
@@ -71,8 +72,9 @@ body {
 }
 #navbar > div > h2 {
   color: white;
-  font-family: "Pacifico", sans-serif;
+  font-family: "Comfortaa", cursive;
   padding-left: 15px;
+  align-self: center;
 }
 
 main {
@@ -118,38 +120,102 @@ main {
   -moz-box-shadow: 10px 25px 40px 11px rgba(0, 0, 0, 0.3);
   box-shadow: 10px 25px 40px 11px rgba(0, 0, 0, 0.3);
 }
-h1 {
-  font-family: "Pacifico", cursive;
+#welcome h1 {
+  font-family: "Comfortaa", cursive;
+  font-weight: bold;
+  font-size: 2em;
+  margin-top: 15px;
+  text-shadow: 5px 0px 6px rgba(0, 0, 0, 0.315);
 }
 
 #welcome {
-  width: 50vw;
+  width: 40vw;
   height: auto;
+  margin-top: 5vh;
+  overflow: hidden;
+  text-align: center;
 }
 
 #welcomeImg {
-  height: 350px;
-  max-height: auto;
-  width: 100%;
-  padding: 15px;
+  height: 300px;
+  margin: 15px;
+
   border-radius: 15px;
+  border: none;
+
+  box-shadow: -2px 5px 36px 13px rgba(74, 73, 73, 0.33);
+  -webkit-box-shadow: -2px 5px 36px 13px rgba(74, 73, 73, 0.33);
+  -moz-box-shadow: -2px 5px 36px 13px rgba(74, 73, 73, 0.33);
 }
 
 #welcomeImg img {
   border-radius: 15px;
 }
 
-.content #welcome {
+#welcome p {
+  padding: 5px;
+  text-align: center;
+  margin: 10px;
 }
 
 #login {
   width: 30vw;
   height: 400px;
   background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.content #login > form > input {
+#login #form {
   display: inline;
+  justify-content: center;
+}
+
+#form h2,
+button {
+  margin: 20px;
+}
+
+.inputGroup {
+  font-family: "Segoe UI", sans-serif;
+  margin: 2em 0 1em 0;
+  max-width: 300px;
+  position: relative;
+  
+}
+.inputGroup input {
+  font-size: 100%;
+  padding: 0.8em;
+  outline: none;
+  border: 2px solid rgb(200, 200, 200);
+  background-color: transparent;
+  border-radius: 20px;
+  width: 100%;
+}
+.inputGroup label {
+  font-size: 100%;
+  position: absolute;
+  left: 0;
+  padding: 0.8em;
+  margin-left: 0.5em;
+  pointer-events: none;
+  transition: all 0.3s ease;
+  color: rgb(100, 100, 100);
+}
+
+.inputGroup :is(input:focus, input:valid) ~ label {
+  transform: translateY(-50%) scale(0.9);
+  margin: 0em;
+  margin-left: 1.3em;
+  padding: 0.4em;
+  background-color: rgb(150, 150, 200);
+  color: #fff;
+  border-radius: 10px;
+}
+
+.inputGroup :is(input:focus, input:valid) {
+  border-color: rgb(150, 150, 200);
 }
 
 .btn {
@@ -217,7 +283,7 @@ button:active {
   --border-width: 5px;
 }
 
-@media screen and (max-width:780px) {
+@media screen and (max-width: 780px) {
   #container {
     flex-direction: column-reverse;
     height: 100vh;
@@ -225,13 +291,6 @@ button:active {
   }
   #welcome {
     width: 80vw;
-    height: auto;
-  }
-
-  #welcomeImg {
-    width: 100%;
-    height: auto;
-    padding: 15px;
-    border-radius: 15px;
+    overflow: visible;
   }
 }
