@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>DOOOO IT!</title>
+    <title>do it!</title>
     <link rel="stylesheet" href="assets/style.css" />
 
     <link
@@ -28,9 +28,10 @@
         </ul>
       </nav>
     </header>
-    <div id="bg-img"></div>
+
     <main>
       <div id="container">
+        <div id="bg-img"></div>
         <div id="welcome" class="content">
           <h1>Bem vindo ao DO IT!</h1>
           <p>Organize Suas Ideias, Planeje seu futuro, Crie novas Metas!</p>
@@ -48,59 +49,68 @@
         </div>
 
         <!-- Formulário de login -->
-        <div id="login" class="content">
-          <div id="form">
+        <div id="login" style="display: none;"  class="content">
+          <div class="form">
             <h2>Entre na sua conta:</h2>
-            <form action="">
+            <form>
               <div class="inputGroup">
                 <input type="text" required="" autocomplete="off" />
-                <label for="name">username</label>
+                <label for="name">Usuário</label>
               </div>
-              
+
               <div class="inputGroup">
                 <input type="password" required="" autocomplete="off" />
-                <label for="password">password</label>
+                <label for="password">Senha</label>
               </div>
-             
+
               <button type="" class="btn">Login</button>
             </form>
           </div>
         </div>
 
         <!-- Formulário de Cadastro -->
-        <div id="signup" style="display: none" class="form content">
-          <form action="post">
-            <input type="text" id="name" />
-            <input type="email" id="email" placeholder="Digite Seu Email..." />
-            <input
-              type="password"
-              id="password"
-              placeholder="Digite sua Senha..."
-            />
-            <input
-              type="password"
-              id="validatePassword"
-              placeholder="Confirme sua Senha..."
-            />
-            <input type="checkbox" name="useTerms" id="useTerms" /> Li e aceito
-            os termos de Uso
-            <button class="btn">Cadastrar</button>
-          </form>
+        <div id="signup" class="content">
+          <div class="form">
+            <h2>Cadastre-se</h2>
+            <form>
+              <div class="inputGroup">
+                <input type="text" required="" autocomplete="off" />
+                <label for="name">Usuário</label>
+              </div>
+              <div class="inputGroup">
+                <input type="email" required="" autocomplete="off" />
+                <label for="email">E-mail</label>
+              </div>
+              <div class="inputGroup">
+                <input type="password" required="" autocomplete="off" />
+                <label for="password">Senha</label>
+              </div>
+              <div class="inputGroup">
+                <input type="password" required="" autocomplete="off" />
+                <label for="confirmPassword">Confirme sua Senha</label>
+              </div>
+              <input type="checkbox" name="useTerms" id="useTerms" /> Li e
+              aceito os termos de Uso
+              <br />
+              <button class="btn">Cadastrar</button>
+            </form>
+          </div>
         </div>
 
         <!-- CARDS SOBRE -->
-
-        <section>
-          <div class="cards"></div>
-          <div class="cards"></div>
-          <div class="cards"></div>
-        </section>
       </div>
+      <hr />
+      <section>
+        <div id="cards">
+          <div class="card">Sobre</div>
+          <div class="card">Conheça nossos Servicos</div>
+          <div class="card">Crie sua conta e comece a se planejar</div>
+        </div>
+      </section>
     </main>
     <footer>
-      <p>lorem</p>
-      <p>lorem</p>
-      <p>lorem</p>
+
+
     </footer>
 
     <script src="js/script.js"></script>
