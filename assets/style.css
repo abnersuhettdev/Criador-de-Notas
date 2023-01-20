@@ -149,6 +149,19 @@ main {
   margin: 10px;
 }
 
+#changeForm {
+  display: inline;
+  transition: all 0.5s;
+  cursor: pointer;
+  width: fit-content;
+}
+#changeForm p:hover {
+  -webkit-transform: scale(1.3);
+  transform: scale(1.3);
+
+  color: #ef476f;
+}
+
 #login {
   width: 30vw;
   height: 400px;
@@ -286,6 +299,7 @@ section {
   justify-content: center;
   align-items: center;
   margin-top: 30px;
+  text-align: center;
 }
 
 #cards {
@@ -309,6 +323,11 @@ section {
   color: black;
   z-index: 0;
   border-radius: 15px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 .card::after {
@@ -347,6 +366,19 @@ section {
   animation-play-state: running;
 }
 
+footer {
+  color: rgba(0, 0, 0, 0.418);
+  font-size: 12px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-top: 1px solid rgba(0, 0, 0, 0.137);
+  margin-top: 30px;
+  height: 50px;
+}
+
 @keyframes rotate-hue {
   to {
     filter: hue-rotate(1turn);
@@ -364,7 +396,7 @@ section {
 
 @media screen and (max-width: 780px) {
   #container {
-    flex-direction: column-reverse;
+    flex-direction: column;
     height: 100%;
     width: 100vw;
   }
