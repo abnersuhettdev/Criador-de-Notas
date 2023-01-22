@@ -155,10 +155,10 @@ main {
   cursor: pointer;
   width: fit-content;
 }
+
 #changeForm p:hover {
   -webkit-transform: scale(1.3);
   transform: scale(1.3);
-
   color: #ef476f;
 }
 
@@ -394,6 +394,14 @@ footer {
   --border-width: 5px;
 }
 
+.visible {
+  display: block;
+}
+
+.hidden {
+  display: none;
+}
+
 @media screen and (max-width: 780px) {
   #container {
     flex-direction: column;
@@ -421,3 +429,5 @@ footer {
     flex-direction: column;
   }
 }
+
+/* DASHBOARD  */
