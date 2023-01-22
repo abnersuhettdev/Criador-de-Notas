@@ -55,15 +55,18 @@
         <div id="divLogin" class="visible">
           <div id="login" class="content">
             <div class="form">
+             
               <h2>Acesse sua conta:</h2>
               <form id="loginForm">
+               
                 <div class="inputGroup">
+                 
                   <input
                     id="username"
                     type="text"
-                    required=""
                     data-name="username"
                     autocomplete="off"
+                    required
                   />
                   <label for="name">Usuário</label>
                 </div>
@@ -74,13 +77,13 @@
                   id="password"
                   data-name="password"
                   type="password"
-                  required=""
                   autocomplete="off"
+                  required
                 />
                 <label for="password">Senha</label>
               </div>
 
-              <button type="" class="btn">Login</button>
+              <button type="submit" class="btn" onclick="login(); return false" >Login</button>
             </form>
           </div>
         </div>
@@ -90,49 +93,57 @@
           <div class="form">
             <h2>Cadastre-se</h2>
             <form id="signupForm">
+
               <div class="inputGroup">
                 <input
-                  id="username"
+                  id="newUsername"
                   type="text"
-                  required=""
                   autocomplete="off"
+                  required
                 />
-                <label for="name">Usuário</label>
+                <label id="newUserlabel" for="name">Usuário</label>
               </div>
+
               <div class="inputGroup">
                 <input
                   id="email"
                   data-name="email"
                   type="email"
-                  required=""
                   autocomplete="off"
+                  required
                 />
-                <label for="email">E-mail</label>
+                <label id="emailLabel" for="email">E-mail</label>
               </div>
+
               <div class="inputGroup">
                 <input
-                  id="password"
+                  id="newPassword"
                   data-name="password"
                   type="password"
-                  required=""
                   autocomplete="off"
+                  required
                 />
-                <label for="password">Senha</label>
+                <label id="passwordLabel" for="password" >Senha</label>
               </div>
+
               <div class="inputGroup">
                 <input
                   id="password2"
                   data-name="password2"
                   type="password"
-                  required=""
                   autocomplete="off"
+                  required
                 />
-                <label for="confirmPassword">Confirme sua Senha</label>
+                <label id="password2Label" for="confirmPassword">Confirme sua Senha</label>
               </div>
-              <input type="checkbox" name="useTerms" id="useTerms" /> Li e
+
+              <input type="checkbox" name="useTerms" id="useTerms" required/> Li e
               aceito os termos de Uso
+              
               <br />
-              <button class="btn">Cadastrar</button>
+
+              <button type="submit" class="btn" onclick="signUp()">Cadastrar</button>
+
             </form>
           </div>
         </div>
