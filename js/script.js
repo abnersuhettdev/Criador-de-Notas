@@ -50,7 +50,7 @@ let p = document.querySelector("#changeForm p");
 const divLogin = document.querySelector("#divLogin");
 const divSignup = document.querySelector("#signup");
 
-changeFormBtn.addEventListener("click", function (e) {
+changeFormBtn.addEventListener("click", function () {
   //Ao clicar no botão alterna a adição e remoçao da class hidden nas divs
   divLogin.classList.toggle("hidden");
   divSignup.classList.toggle("hidden");
