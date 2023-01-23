@@ -62,9 +62,9 @@ email.addEventListener("keyup", () => {
 
 //Verificando e mudando o estilo caso o numero de caracteres seja inválido
 password.addEventListener("keyup", () => {
-  if (password.value.length <= 7) {
+  if (password.value.length <= 4) {
     password.setAttribute("style", "border-color: red");
-    passwordLabel.innerText = "Minimo 8 caracteres";
+    passwordLabel.innerText = "Minimo 5 caracteres";
     validPassword = false;
   } else {
     password.setAttribute("style", "border-color: green");
@@ -75,7 +75,7 @@ password.addEventListener("keyup", () => {
 
 //Verificando e mudando o estilo caso as senhas não conferirem
 password2.addEventListener("keyup", () => {
-  if (password2.value != password.value) {
+  if (password2.value != password.value || password2.value == "") {
     password2.setAttribute("style", "border-color: red");
     password2Label.innerText = "As senhas não conferem";
     validPassword2 = false;
@@ -88,7 +88,6 @@ password2.addEventListener("keyup", () => {
 
 //Formulário de Cadastro
 function signUp(e) {
-
   //Verifica se todos os inputs são válidos
   if (validUser && validEmail && validPassword && validPassword2) {
     alert("TUDO OK!");

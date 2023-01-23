@@ -194,6 +194,7 @@ main {
 
 .form h2,
 button {
+  font-size: 1.5em;
   margin: 8px 0px;
 }
 
@@ -204,7 +205,7 @@ button {
   position: relative;
 }
 .inputGroup input {
-  font-size: 100%;
+  font-size: 1em;
   padding: 0.8em;
   outline: none;
   border: 2px solid rgb(200, 200, 200);
@@ -213,7 +214,7 @@ button {
   width: 100%;
 }
 .inputGroup label {
-  font-size: 100%;
+  font-size: 0.8em;
   position: absolute;
   left: 0;
   padding: 0.8em;
