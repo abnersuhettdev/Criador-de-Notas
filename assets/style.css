@@ -135,21 +135,21 @@ main {
   margin-top: 15px;
 }
 
+#welcomeTitle {
+  display: inline-block;
+  padding: 10px;
+}
+
 #welcome {
   width: 40vw;
-  height: auto;
   margin-top: 5vh;
   overflow: hidden;
   text-align: center;
 }
 
 #welcomeImg {
-  height: 320px;
+  height: fit-content;
   margin: 15px;
-}
-
-#welcomeImg img {
-  border-radius: 15px;
 }
 
 #welcome p {
