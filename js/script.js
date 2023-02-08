@@ -92,7 +92,8 @@ function signUp(e) {
   if (validUser && validEmail && validPassword && validPassword2) {
     alert("TUDO OK!");
   } else {
-    alert("Tá tudo vazio!");
+    alert("Insira os dados corretamente para prosseguir!");
+    return;
   }
 
   // Recebe os usuários do localStorage, caso não haja, inicia uma lista vazia

@@ -439,4 +439,11 @@ footer {
   }
 }
 
+@media screen and (max-width: 500px) {
+  #navbar div > h2 {
+    visibility: hidden;
+    width: 10px;
+  }
+}
+
 /* DASHBOARD  */
