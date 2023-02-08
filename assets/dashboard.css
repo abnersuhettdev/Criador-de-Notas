@@ -73,6 +73,10 @@ body {
   gap: 15px;
 }
 
+#notes h2 {
+  font-weight: normal;
+}
+
 button {
   appearance: none;
   position: relative;
