@@ -20,30 +20,27 @@
     </div>
     <div id="container">
       <div id="addItem">
-        <h3>Adicione uma nova tarefa:</h3>
-        <form>
+        <h2>Adicione uma nova tarefa:</h2>
+        <form id="formNewItem">
           <div class="inputGroup">
-            <input type="text" placeholder="Digite aqui" />
-            <button><i class="ph-plus"></i></button>
+            <input id="newItemTitle" type="text" placeholder="Título" />
+            <input
+              id="newItemDescription"
+              type="text"
+              placeholder="Detalhamento"
+            />
+            <button id="add"><i class="ph-plus"></i></button>
           </div>
         </form>
+        <p id="errorMessage"></p>
       </div>
       <hr />
-      <div id="notes">
+      <div>
         <h2>Tarefas:</h2>
-
-        <div class="inputGroup">
-          <input type="text" placeholder="Digite aqui" />
-          <button><i class="ph-pencil"></i></button>
-          <button><i class="ph-trash"></i></button>
-        </div>
-
-        <div class="inputGroup">
-          <input type="text" placeholder="Digite aqui" />
-          <button><i class="ph-pencil"></i></button>
-          <button><i class="ph-trash"></i></button>
-        </div>
+        <div id="notes"></div>
       </div>
     </div>
+
+    <script src="js/dashboard.js"></script>
   </body>
 </html>
