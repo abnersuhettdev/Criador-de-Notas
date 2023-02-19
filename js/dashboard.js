@@ -12,21 +12,30 @@ function renderNotes() {
   divNotes.innerHTML = "";
   //para cada nota vai adicionar à divNotes um novo inputGroup
   notes.forEach((note, index) => {
-    //note = cada objeto, index = indice de cada objeto
-    divNotes.innerHTML += `<div id=${index} class="inputGroup">
-            <input onchange='checkNote' type="checkbox" class="check" checked=${
-              note.checked ? "checked" : ""
-            }/>
+    if (note.checked !== true) {
+      divNotes.innerHTML += `<div id=${index} class="inputGroup ">
+            <input onchange='checkNote(this)' type="checkbox" class="check" />
             <input disabled class="itemTitle" value="${note.title}"></input>
-            <input disabled class="itemDescription" value="${
-              note.description
-            }"></input>
+            <input disabled class="itemDescription" value="${note.description}"></input>
             <button class='btn-edit' onclick='editNote(this)'><i class="ph-pencil"></i></button>
             <button class='btn-save' onclick='updateNote(this)' style='display:none'><i class="ph-check"></i></button>
             <button onclick='deleteNote(this)'><i class="ph-trash"></i></button>
             </div>`;
-    console.log(note.checked);
+    } else {
+      divNotes.innerHTML += `<div class="inputGroup checked">
+            <input onchange='checkNote(this)' type="checkbox" class="check" checked/>
+            <input disabled class="itemTitle" value="${note.title}"></input>
+            <input disabled class="itemDescription" value="${note.description}"></input>
+            <button class='btn-edit' onclick='editNote(this)'><i class="ph-pencil"></i></button>
+            <button class='btn-save' onclick='updateNote(this)' style='display:none'><i class="ph-check"></i></button>
+            <button onclick='deleteNote(this)'><i class="ph-trash"></i></button>
+            </div>`;
+    }
+
+    //note = cada objeto, index = indice de cada objeto
   });
+
+  console.log(notes);
 }
 
 //Adicionar nova nota
@@ -36,7 +45,7 @@ formNewItem.addEventListener("submit", (e) => {
   note = {
     title: ItemTitle.value,
     description: ItemDescription.value,
-    checked: "",
+    checked: false,
   };
 
   if (
@@ -53,8 +62,6 @@ formNewItem.addEventListener("submit", (e) => {
   }
   ItemTitle.value = "";
   ItemDescription.value = "";
-
-  console.log(notes);
 });
 
 //deletar nota
@@ -64,8 +71,6 @@ function deleteNote(deleteBtn) {
 
   //Renderiza novamente as notas
   renderNotes();
-
-  console.log(notes);
 }
 
 //Editar nota
@@ -100,11 +105,18 @@ function updateNote(updateBtn) {
   note.title = newTitle.value;
   note.description = newDescription.value;
 
-  console.log(notes);
+  //console.log(notes);
 }
 
 //Check Nota
 function checkNote(checkBtn) {
-  let isChecked = checkBtn.parentElement.querySelector(".check");
-  note.checked = isChecked.value;
+  if (checkBtn.checked) {
+    note.checked = true;
+    checkBtn.parentElement.style.background = "#8AC926";
+    checkBtn.setAttribute("checked", true);
+  } else {
+    note.checked = false;
+    checkBtn.parentElement.style.background = "";
+    checkBtn.setAttribute("checked", false);
+  }
 }

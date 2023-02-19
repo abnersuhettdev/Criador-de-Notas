@@ -54,12 +54,12 @@ body {
 
   margin-bottom: 15px;
 }
-p {
+
+#addItem p {
   margin-top: 10px;
   text-align: center;
   color: #f53663;
 }
-
 .inputGroup > input,
 span {
   width: 100%;
@@ -168,4 +168,8 @@ button::after {
 
 button:active {
   --border-width: 5px;
+}
+
+.checked {
+  background-color: #8ac926;
 }
