@@ -23,6 +23,7 @@ function renderNotes() {
 
     if (note.checked === true) {
       divNotes.querySelector(`#n${index}`).classList.add("checked");
+      divNotes.querySelector(`#n${index}>.check`).setAttribute("checked", true);
     }
     //note = cada objeto, index = indice de cada objeto
   });
