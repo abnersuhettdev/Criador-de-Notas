@@ -11,20 +11,23 @@ let note;
 function renderNotes() {
   divNotes.innerHTML = "";
   //para cada nota vai adicionar à divNotes um novo inputGroup
-  notes.forEach((note, index) => {
-    divNotes.innerHTML += `<div id=n${index} class="inputGroup">
-            <input onchange='checkNote(this)' type="checkbox" class="check"/>
-            <input disabled class="itemTitle" value="${note.title}"></input>
-            <input disabled class="itemDescription" value="${note.description}"></input>
-            <button class='btn-edit' onclick='editNote(this)'><i class="ph-pencil"></i></button>
-            <button class='btn-save' onclick='updateNote(this)' style='display:none'><i class="ph-check"></i></button>
-            <button onclick='deleteNote(this)'><i class="ph-trash"></i></button>
-            </div>`;
 
-    if (note.checked === true) {
-      divNotes.querySelector(`#n${index}`).classList.add("checked");
-      divNotes.querySelector(`#n${index}>.check`).setAttribute("checked", true);
-    }
+  notes.forEach((note, index) => {
+    const noteElement = `
+    <!-- Nova Nota -->
+    <div id=n${index} class="inputGroup 
+  ${note.checked === true ? "checked" : ""}">
+  <input onchange='checkNote(this)' type="checkbox" class="check" 
+  ${note.checked === true ? "checked" : ""}/>
+  <input disabled class="itemTitle" value="${note.title}"></input>
+  <input disabled class="itemDescription" value="${note.description}"></input>
+  <button class='btn-edit' onclick='editNote(this)'><i class="ph-pencil"></i></button>
+  <button class='btn-save' onclick='updateNote(this)' style='display:none'><i class="ph-check"></i></button>
+  <button onclick='deleteNote(this)'><i class="ph-trash"></i></button>
+  </div>`;
+
+    divNotes.innerHTML += noteElement;
+
     //note = cada objeto, index = indice de cada objeto
   });
 
