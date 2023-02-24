@@ -6,7 +6,6 @@ const addBtn = document.querySelector("#add");
 const divNotes = document.querySelector("#notes");
 
 const notes = [];
-let note;
 
 function renderNotes() {
   divNotes.innerHTML = "";
@@ -17,12 +16,12 @@ function renderNotes() {
     <!-- Nova Nota -->
     <div id=n${index} class="inputGroup 
   ${note.checked === true ? "checked" : ""}">
-  <input onchange='checkNote(this)' type="checkbox" class="check" 
+  <input onchange='checkNote(this, ${index})' type="checkbox" class="check" 
   ${note.checked === true ? "checked" : ""}/>
   <input disabled class="itemTitle" value="${note.title}"></input>
   <input disabled class="itemDescription" value="${note.description}"></input>
-  <button class='btn-edit' onclick='editNote(this)'><i class="ph-pencil"></i></button>
-  <button class='btn-save' onclick='updateNote(this)' style='display:none'><i class="ph-check"></i></button>
+  <button class='btn-edit' onclick='editNote(this, ${index})'><i class="ph-pencil"></i></button>
+  <button class='btn-save' onclick='updateNote(this, ${index})' style='display:none'><i class="ph-check"></i></button>
   <button onclick='deleteNote(this)'><i class="ph-trash"></i></button>
   </div>`;
 
@@ -38,7 +37,7 @@ function renderNotes() {
 formNewItem.addEventListener("submit", (e) => {
   e.preventDefault();
 
-  note = {
+  let note = {
     title: ItemTitle.value,
     description: ItemDescription.value,
     checked: false,
@@ -70,7 +69,7 @@ function deleteNote(deleteBtn) {
 }
 
 //Editar nota
-function editNote(editBtn) {
+function editNote(editBtn, index) {
   //pegando os inputs a partir do botão editar
   let newTitle = editBtn.parentElement.querySelector(".itemTitle");
   let newDescription = editBtn.parentElement.querySelector(".itemDescription");
@@ -83,7 +82,7 @@ function editNote(editBtn) {
 }
 
 //Atualizar Nota
-function updateNote(updateBtn) {
+function updateNote(updateBtn, index) {
   //pegando os inputs dentro da div pai e o ID da div pelo botão editar
   let newTitle = updateBtn.parentElement.querySelector(".itemTitle");
   let newDescription =
@@ -97,22 +96,21 @@ function updateNote(updateBtn) {
   newDescription.disabled = true;
 
   //atualizando novos valores no objeto
-  note = notes[getId];
-  note.title = newTitle.value;
-  note.description = newDescription.value;
+  notes[index].title = newTitle.value;
+  notes[index].description = newDescription.value;
 
   //console.log(notes);
 }
 
 //Check Nota
-function checkNote(checkBtn) {
+function checkNote(checkBtn, index) {
   if (checkBtn.checked) {
-    note.checked = true;
+    notes[index].checked = true;
     checkBtn.parentElement.style.background = "#8AC926";
     checkBtn.setAttribute("checked", true);
   } else {
-    note.checked = false;
-    checkBtn.parentElement.style.background = "";
+    notes[index].checked = false;
+    checkBtn.parentElement.style.background = "#5c5c5c17";
     checkBtn.setAttribute("checked", false);
   }
 }
