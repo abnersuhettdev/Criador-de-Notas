@@ -48,10 +48,15 @@ body {
 #navbar {
   display: flex;
   flex-direction: row;
-  padding: 10px;
+  padding: 10px 20px;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
 
+  color: #fff;
+}
+
+a{
+  text-decoration: none;
   color: #fff;
 }
 
@@ -68,12 +73,13 @@ body {
 #navbar > div > img {
   width: 35px;
   height: 35px;
+  float: left;
 }
 
 #navimg {
   display: flex;
-  margin: auto;
-  margin-left: 20px;
+  align-items: center;
+  margin-right: 15px;
 }
 
 #navbar > div > h2 {
@@ -380,12 +386,14 @@ footer {
   font-size: 12px;
 
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 
   border-top: 1px solid rgba(0, 0, 0, 0.137);
-  margin-top: 30px;
-  height: 50px;
+  margin-top: 40px;
+  padding: 20px;
+  height: fit-content;
 }
 
 @keyframes rotate-hue {
@@ -444,6 +452,10 @@ footer {
     visibility: hidden;
     width: 10px;
   }
+  #navbar ul>li{
+    font-size: 0.8rem;
+  }
+  
 }
 
 /* DASHBOARD  */
