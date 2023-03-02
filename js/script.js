@@ -88,6 +88,7 @@ password2.addEventListener("keyup", () => {
 
 //Formulário de Cadastro
 function signUp(e) {
+  e.preventDefault()
   //Verifica se todos os inputs são válidos
   if (validUser && validEmail && validPassword && validPassword2) {
     alert("TUDO OK!");

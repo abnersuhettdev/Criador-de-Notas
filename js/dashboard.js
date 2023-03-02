@@ -14,7 +14,7 @@ function renderNotes() {
   notes.forEach((note, index) => {
     const noteElement = `
     <!-- Nova Nota -->
-    <div id=n${index} class="inputGroup 
+    <div id=${index} class="inputGroup 
   ${note.checked === true ? "checked" : ""}">
   <input onchange='checkNote(this, ${index})' type="checkbox" class="check" 
   ${note.checked === true ? "checked" : ""}/>
