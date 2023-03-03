@@ -10,7 +10,8 @@ const signOutBtn = document.querySelector('#signOut')
 
 const loggedUser = JSON.parse(localStorage.getItem("loggedUser"))
 const users = JSON.parse(localStorage.getItem("users"))
-let notes = []
+
+
 ////////////////////////////////////////////////////////////////////////////////////
 document.addEventListener("DOMContentLoaded", changeName)
 document.addEventListener("DOMContentLoaded", addNotes)
@@ -20,16 +21,30 @@ function changeName(){
   userh1.innerText = `Olá, ${loggedUser.username}!`;
 }
 
+function verifyNoteChecked(note){
+  let isChecked;
+  if(!note.checked){
+     isChecked = 'unchecked'
+     return isChecked
+  }
+   isChecked = 'checked'
+   return isChecked
+  
+}
+
 /////////////////////////////////////////////////////////////////////////////////////
 function createElements(note){
 
   const divInputGroup = document.createElement('div')
   divInputGroup.setAttribute('class', 'inputGroup')
+  divInputGroup.classList.add(verifyNoteChecked(note))
+  console.log(divInputGroup)
   divInputGroup.id = note.id
 
   const checkbox = document.createElement('input')
   checkbox.setAttribute('class', 'check')
   checkbox.setAttribute('type', 'checkbox')
+  checkbox.setAttribute(verifyNoteChecked(note), true)
   divInputGroup.appendChild(checkbox)
 
   const inputItemTitle = document.createElement('input')
@@ -71,12 +86,14 @@ function createElements(note){
 
 //função para adicionar notas
 function addNotes() {
+
   divNotes.innerHTML = ''
 
   for(let note of loggedUser.notes) {  
     const element = createElements(note)
     divNotes.appendChild(element)
-  } 
+  }
+
 
   console.log(loggedUser.notes);
  }
@@ -106,31 +123,26 @@ formNewItem.addEventListener("submit", (e) => {
  
   formNewItem.reset()
 
-  notes.push(note)
-
-  loggedUser.notes = notes;
-
-  let user = users.find((user)=> user.username === loggedUser.username)
-  let userIndex = users.findIndex((user)=> user.username === loggedUser.username)
-
-  user.notes = notes
-  users.splice(userIndex, 1, user)
+  loggedUser.notes.push(note)
+  
   updateLocalStorage()
   addNotes()
+  localStorage.setItem("lastID",note.id);
  });
 
 
 function createID(){
-  let randomized = Math.ceil(Math.random() * Math.pow(10, 2));
-  let digito = Math.ceil(Math.log(randomized));//Cria o d�gito verificador inicial
-  while(digito > 10){//Pega o digito inicial e vai refinando at� ele ficar menor que dez
-    digito = Math.ceil(Math.log(digito));
-  }
-  let id = randomized + '-' + digito;//Cria a ID
-  return id;
+  let id = Number(localStorage.getItem("lastID") ?? "0");
+  return ++id;
 }
 
 function updateLocalStorage(){ 
+  let user = users.find((user)=> user.username === loggedUser.username)
+  let userIndex = users.findIndex((user)=> user.username === loggedUser.username)
+
+  user.notes = loggedUser.notes
+  users.splice(userIndex, 1, user)
+
   localStorage.setItem("users", JSON.stringify(users));
   localStorage.setItem("loggedUser", JSON.stringify(loggedUser));
 }
@@ -138,7 +150,8 @@ function updateLocalStorage(){
 //deletar nota
 function deleteNote(deleteBtn, parentElement) {
   deleteBtn.addEventListener('click', ()=>{
-    loggedUser.notes.splice(parentElement.id, 1);
+    let index = loggedUser.notes.findIndex((note)=> note.id === parentElement.id)
+    loggedUser.notes.splice(index, 1);
   
     parentElement.remove()
     updateLocalStorage()
