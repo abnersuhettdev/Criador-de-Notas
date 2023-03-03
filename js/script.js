@@ -151,6 +151,7 @@ function verifyUserAlreadyExists(exists){
 }
 
 ////////////////////////////////////////////////////////////////////
+
 //Função para fazer Login
 
 loginForm.addEventListener('submit', (e)=>{
@@ -170,7 +171,6 @@ function verifyUser(users) {
     //Se o usuário for válido, adiciona ao localStorage o Objeto LoggedUser para monitorar a sessão ativa
     if (user) {
      loggedUser = user
-     loggedUser.notes = []
      console.log(loggedUser)
      localStorage.setItem("loggedUser", JSON.stringify(loggedUser))
      window.location.href = "dashboard.html"
