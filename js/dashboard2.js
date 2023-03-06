@@ -21,6 +21,7 @@ function changeName(){
   userh1.innerText = `Olá, ${loggedUser.username}!`;
 }
 
+////////////////////////////////////////////////////////////////////////////////////
 function verifyNoteChecked(note){
   let isChecked;
   if(!note.checked){
@@ -38,7 +39,6 @@ function createElements(note){
   const divInputGroup = document.createElement('div')
   divInputGroup.setAttribute('class', 'inputGroup')
   divInputGroup.classList.add(verifyNoteChecked(note))
-  console.log(divInputGroup)
   divInputGroup.id = note.id
 
   const checkbox = document.createElement('input')
@@ -83,7 +83,6 @@ function createElements(note){
 }
 
 ////////////////////////////////////////////////////////////////////////////////////
-
 //função para adicionar notas
 function addNotes() {
 
@@ -94,13 +93,10 @@ function addNotes() {
     divNotes.appendChild(element)
   }
 
-
-  console.log(loggedUser.notes);
  }
 
 
 //////////////////////////////////////////////////////////////////////////////////// 
-
 //Adicionar nova nota
 formNewItem.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -130,12 +126,13 @@ formNewItem.addEventListener("submit", (e) => {
   localStorage.setItem("lastID",note.id);
  });
 
-
+////////////////////////////////////////////////////////////////////////////////////
 function createID(){
   let id = Number(localStorage.getItem("lastID") ?? "0");
   return ++id;
 }
 
+////////////////////////////////////////////////////////////////////////////////////
 function updateLocalStorage(){ 
   let user = users.find((user)=> user.username === loggedUser.username)
   let userIndex = users.findIndex((user)=> user.username === loggedUser.username)
@@ -146,6 +143,8 @@ function updateLocalStorage(){
   localStorage.setItem("users", JSON.stringify(users));
   localStorage.setItem("loggedUser", JSON.stringify(loggedUser));
 }
+
+////////////////////////////////////////////////////////////////////////////////////
 
 //deletar nota
 function deleteNote(deleteBtn, parentElement) {
@@ -158,11 +157,11 @@ function deleteNote(deleteBtn, parentElement) {
   }) 
 }
 
+////////////////////////////////////////////////////////////////////////////////////
+
 //Editar nota
 function editNote(btnEdit, parentElement, btnSave) {
   btnEdit.addEventListener('click', ()=>{
-    console.log(btnEdit)
-    console.log(parentElement)
     //habilitando os inputs a partir do botão editar
     let newTitle = parentElement.querySelector(".itemTitle");
     let newDescription = parentElement.querySelector(".itemDescription");
@@ -177,6 +176,7 @@ function editNote(btnEdit, parentElement, btnSave) {
   })
  
  }
+////////////////////////////////////////////////////////////////////////////////////
 
  //Atualizar Nota
  function updateNote(btnEdit,parentElement,btnSave) {
@@ -199,6 +199,9 @@ function editNote(btnEdit, parentElement, btnSave) {
     updateLocalStorage()
   })
  }
+
+////////////////////////////////////////////////////////////////////////////////////
+
  
  //Check Nota
  function checkNote(checkbox, parentElement) {
@@ -217,7 +220,7 @@ function editNote(btnEdit, parentElement, btnSave) {
     })
  } 
 
-//////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////
 
 signOutBtn.addEventListener('click', ()=>{
   localStorage.removeItem("loggedUser")

@@ -91,7 +91,7 @@ password2.addEventListener("keyup", () => {
     }
   });
 
-////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////
 
 //Busca o item Users do localStorage, caso não tenha nenhum, retorna uma lista vazia
 let users = JSON.parse(localStorage.getItem("users") || "[]");
@@ -123,6 +123,7 @@ signUpForm.addEventListener("submit", function (e) {
       
 })
 
+////////////////////////////////////////////////////////////////////////////////////
 //Verifica se o usuário já existe
 function verifyUserAlreadyExists(exists){
   let userExists = users.find((user)=> newUsername.value === user.username || newEmail.value === user.email)
@@ -150,7 +151,7 @@ function verifyUserAlreadyExists(exists){
   
 }
 
-////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////
 
 //Função para fazer Login
 
@@ -159,6 +160,7 @@ loginForm.addEventListener('submit', (e)=>{
 
   verifyUser(users) 
 })
+
 
 //Verifica os usuários
 function verifyUser(users) {
