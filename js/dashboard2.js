@@ -163,7 +163,7 @@ function editNote(btnEdit, parentElement, btnSave) {
   btnEdit.addEventListener('click', ()=>{
     console.log(btnEdit)
     console.log(parentElement)
-    //pegando os inputs a partir do botão editar
+    //habilitando os inputs a partir do botão editar
     let newTitle = parentElement.querySelector(".itemTitle");
     let newDescription = parentElement.querySelector(".itemDescription");
   
@@ -180,7 +180,7 @@ function editNote(btnEdit, parentElement, btnSave) {
 
  //Atualizar Nota
  function updateNote(btnEdit,parentElement,btnSave) {
-  //pegando os inputs dentro da div pai e o ID da div pelo botão editar
+  //pegando os inputs dentro da div pai
   btnSave.addEventListener('click', ()=>{
     let newTitle = parentElement.querySelector(".itemTitle");
     let newDescription = parentElement.querySelector(".itemDescription");
@@ -210,7 +210,7 @@ function editNote(btnEdit, parentElement, btnSave) {
       parentElement.classList.add('checked');     
      } else {
       loggedUser.notes[checkedNoteIndex].checked = false;
-     parentElement.style.background = "#5c5c5c17";
+      parentElement.style.background = "#5c5c5c17";
      }
 
      updateLocalStorage()
@@ -221,5 +221,5 @@ function editNote(btnEdit, parentElement, btnSave) {
 
 signOutBtn.addEventListener('click', ()=>{
   localStorage.removeItem("loggedUser")
-  window.location.href = "index.html"
+   window.location.href = "index.html"
 })
